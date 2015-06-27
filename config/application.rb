@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module ShopWoven
   class Application < Rails::Application
+    config.action_dispatch.default_headers['P3P'] = 'CP="Not used"'
+    config.action_dispatch.default_headers.delete('X-Frame-Options')
 
     config.generators do |g|
       g.test_framework :rspec,
